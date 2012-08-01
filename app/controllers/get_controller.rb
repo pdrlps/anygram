@@ -9,7 +9,7 @@ end
 class GetController < ApplicationController
   def index
   	puts "bla"
-  	@photos = Instagram.media_popular
+  	@photos = Instagram.tag('love')
   	puts @photos
   end
 end

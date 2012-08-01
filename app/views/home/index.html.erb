@@ -1,8 +1,8 @@
 <header>
 </header>
 <div role="main" id="images">
-	<% @photos.each do |photo| %>
-		<img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" />
+	<% @photos.data.each do |photo| %>
+		<a href="<%= photo.link %>" target="_blank"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" /></a>
 	<% end %>
 </div>
 <footer>

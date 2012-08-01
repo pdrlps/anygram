@@ -8,6 +8,6 @@ end
 
 class HomeController < ApplicationController
   def index
-  	@photos = Instagram.media_popular
+  	@photos = Instagram.tag_recent_media('love')
   end
 end
