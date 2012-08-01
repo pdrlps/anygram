@@ -1,10 +1,6 @@
-find_executable: checking for pg_config... -------------------- yes
-
---------------------
-
 find_header: checking for libpq-fe.h... -------------------- yes
 
-"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include   -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
+"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include   -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
 checked program was:
 /* begin */
 1: #include <libpq-fe.h>
@@ -14,7 +10,7 @@ checked program was:
 
 find_header: checking for libpq/libpq-fs.h... -------------------- yes
 
-"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include   -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
+"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include   -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
 checked program was:
 /* begin */
 1: #include <libpq/libpq-fs.h>
@@ -24,7 +20,7 @@ checked program was:
 
 find_header: checking for pg_config_manual.h... -------------------- yes
 
-"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include   -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
+"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include   -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
 checked program was:
 /* begin */
 1: #include <pg_config_manual.h>
@@ -32,105 +28,610 @@ checked program was:
 
 --------------------
 
-have_library: checking for PQconnectdb() in -lpq... -------------------- no
+have_library: checking for PQconnectdb() in -lpq... -------------------- yes
 
-"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/usr/lib     -lruby -lpq  -lpthread -ldl -lobjc  "
-ld: warning: ignoring file /usr/lib/libpq.dylib, file was built for unsupported file format ( 0xcf 0xfa 0xed 0xfe 0x 7 0x 0 0x 0 0x 1 0x 3 0x 0 0x 0 0x 0 0x 6 0x 0 0x 0 0x 0 ) which is not the architecture being linked (i386): /usr/lib/libpq.dylib
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib     -lruby -lpq  -lpthread -ldl -lobjc  "
+checked program was:
+/* begin */
+1: #include <libpq-fe.h>
+2: 
+3: /*top*/
+4: int main() { return 0; }
+5: int t() { void ((*volatile p)()); p = (void ((*)()))PQconnectdb; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQconnectionUsedPassword()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQconnectionUsedPassword'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQconnectionUsedPassword; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQconnectionUsedPassword; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQconnectionUsedPassword' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQconnectionUsedPassword(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQconnectionUsedPassword' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQconnectionUsedPassword(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQconnectionUsedPassword(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQisthreadsafe()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQisthreadsafe'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQisthreadsafe; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQisthreadsafe; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQisthreadsafe' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQisthreadsafe(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQisthreadsafe' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQisthreadsafe(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQisthreadsafe(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQprepare()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQprepare'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQprepare; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQprepare; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQprepare' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQprepare(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQprepare' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQprepare(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQprepare(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQexecParams()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQexecParams'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQexecParams; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQexecParams; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQexecParams' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQexecParams(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQexecParams' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQexecParams(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQexecParams(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQescapeString()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQescapeString'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQescapeString; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQescapeString; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQescapeString' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQescapeString(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQescapeString' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQescapeString(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQescapeString(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQescapeStringConn()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQescapeStringConn'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQescapeStringConn; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQescapeStringConn; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQescapeStringConn' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQescapeStringConn(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQescapeStringConn' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQescapeStringConn(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQescapeStringConn(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQescapeLiteral()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQescapeLiteral'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQescapeLiteral; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQescapeLiteral; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQescapeLiteral' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQescapeLiteral(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQescapeLiteral' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQescapeLiteral(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQescapeLiteral(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQescapeIdentifier()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQescapeIdentifier'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQescapeIdentifier; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQescapeIdentifier; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQescapeIdentifier' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQescapeIdentifier(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQescapeIdentifier' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQescapeIdentifier(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQescapeIdentifier(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQgetCancel()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQgetCancel'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQgetCancel; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQgetCancel; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQgetCancel' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQgetCancel(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQgetCancel' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQgetCancel(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQgetCancel(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for lo_create()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'lo_create'
+int t() { void ((*volatile p)()); p = (void ((*)()))lo_create; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))lo_create; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'lo_create' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { lo_create(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'lo_create' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { lo_create(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { lo_create(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for pg_encoding_to_char()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'pg_encoding_to_char'
+int t() { void ((*volatile p)()); p = (void ((*)()))pg_encoding_to_char; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))pg_encoding_to_char; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'pg_encoding_to_char' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { pg_encoding_to_char(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'pg_encoding_to_char' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { pg_encoding_to_char(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { pg_encoding_to_char(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for pg_char_to_encoding()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'pg_char_to_encoding'
+int t() { void ((*volatile p)()); p = (void ((*)()))pg_char_to_encoding; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))pg_char_to_encoding; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'pg_char_to_encoding' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { pg_char_to_encoding(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'pg_char_to_encoding' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { pg_char_to_encoding(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { pg_char_to_encoding(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQsetClientEncoding()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQsetClientEncoding'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQsetClientEncoding; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQsetClientEncoding; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQsetClientEncoding' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQsetClientEncoding(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQsetClientEncoding' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQsetClientEncoding(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQsetClientEncoding(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQlibVersion()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQlibVersion'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQlibVersion; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQlibVersion; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQlibVersion' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQlibVersion(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQlibVersion' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQlibVersion(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQlibVersion(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for PQping()... -------------------- yes
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'PQping'
+int t() { void ((*volatile p)()); p = (void ((*)()))PQping; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))PQping; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'PQping' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQping(); return 0; }
+          ^
+1 warning generated.
+conftest.c:3:11: warning: implicit declaration of function 'PQping' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { PQping(); return 0; }
+          ^
+1 warning generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { PQping(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_encdb_alias()... -------------------- no
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'rb_encdb_alias'
+int t() { void ((*volatile p)()); p = (void ((*)()))rb_encdb_alias; return 0; }
+                                                    ^
+1 error generated.
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))rb_encdb_alias; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'rb_encdb_alias' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { rb_encdb_alias(); return 0; }
+          ^
+1 warning generated.
 Undefined symbols for architecture i386:
-  "_PQconnectdb", referenced from:
-      _t in conftest-xeuDMz.o
+  "_rb_encdb_alias", referenced from:
+      _t in conftest-aeWwvm.o
 ld: symbol(s) not found for architecture i386
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
 /* begin */
-1: #include <libpq-fe.h>
-2: 
-3: /*top*/
-4: int main() { return 0; }
-5: int t() { void ((*volatile p)()); p = (void ((*)()))PQconnectdb; return 0; }
-/* end */
-
-"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/usr/lib     -lruby -lpq  -lpthread -ldl -lobjc  "
-conftest.c:5:23: error: too few arguments to function call, expected 1, have 0
-int t() { PQconnectdb(); return 0; }
-          ~~~~~~~~~~~ ^
-/usr/include/libpq-fe.h:243:1: note: 'PQconnectdb' declared here
-extern PGconn *PQconnectdb(const char *conninfo);
-^
-1 error generated.
-checked program was:
-/* begin */
-1: #include <libpq-fe.h>
-2: 
-3: /*top*/
-4: int main() { return 0; }
-5: int t() { PQconnectdb(); return 0; }
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { rb_encdb_alias(); return 0; }
 /* end */
 
 --------------------
 
-have_library: checking for PQconnectdb() in -llibpq... -------------------- no
+have_func: checking for rb_enc_alias()... -------------------- no
 
-"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/usr/lib     -lruby -llibpq  -lpthread -ldl -lobjc  "
-ld: library not found for -llibpq
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
-checked program was:
-/* begin */
-1: #include <libpq-fe.h>
-2: 
-3: /*top*/
-4: int main() { return 0; }
-5: int t() { void ((*volatile p)()); p = (void ((*)()))PQconnectdb; return 0; }
-/* end */
-
-"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/usr/lib     -lruby -llibpq  -lpthread -ldl -lobjc  "
-conftest.c:5:23: error: too few arguments to function call, expected 1, have 0
-int t() { PQconnectdb(); return 0; }
-          ~~~~~~~~~~~ ^
-/usr/include/libpq-fe.h:243:1: note: 'PQconnectdb' declared here
-extern PGconn *PQconnectdb(const char *conninfo);
-^
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:53: error: use of undeclared identifier 'rb_enc_alias'
+int t() { void ((*volatile p)()); p = (void ((*)()))rb_enc_alias; return 0; }
+                                                    ^
 1 error generated.
 checked program was:
 /* begin */
-1: #include <libpq-fe.h>
-2: 
-3: /*top*/
-4: int main() { return 0; }
-5: int t() { PQconnectdb(); return 0; }
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))rb_enc_alias; return 0; }
+/* end */
+
+"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/Library/PostgreSQL/9.1/lib    -lpq  -lruby -lpq  -lpthread -ldl -lobjc  "
+conftest.c:3:11: warning: implicit declaration of function 'rb_enc_alias' is invalid in C99 [-Wimplicit-function-declaration]
+int t() { rb_enc_alias(); return 0; }
+          ^
+1 warning generated.
+Undefined symbols for architecture i386:
+  "_rb_enc_alias", referenced from:
+      _t in conftest-4YJ7Z1.o
+ld: symbol(s) not found for architecture i386
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { rb_enc_alias(); return 0; }
 /* end */
 
 --------------------
 
-have_library: checking for PQconnectdb() in -lms/libpq... -------------------- no
+have_const: checking for PGRES_COPY_BOTH in libpq-fe.h... -------------------- yes
 
-"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/usr/lib     -lruby -lms/libpq  -lpthread -ldl -lobjc  "
-ld: library not found for -lms/libpq
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
+"xcrun cc -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common     -c conftest.c"
 checked program was:
 /* begin */
 1: #include <libpq-fe.h>
 2: 
 3: /*top*/
-4: int main() { return 0; }
-5: int t() { void ((*volatile p)()); p = (void ((*)()))PQconnectdb; return 0; }
+4: typedef int conftest_type;
+5: conftest_type conftestval = (int)PGRES_COPY_BOTH;
 /* end */
 
-"xcrun cc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common   conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch i386 -arch x86_64  -L/usr/lib     -lruby -lms/libpq  -lpthread -ldl -lobjc  "
-conftest.c:5:23: error: too few arguments to function call, expected 1, have 0
-int t() { PQconnectdb(); return 0; }
-          ~~~~~~~~~~~ ^
-/usr/include/libpq-fe.h:243:1: note: 'PQconnectdb' declared here
-extern PGconn *PQconnectdb(const char *conninfo);
-^
-1 error generated.
+--------------------
+
+have_struct_member: checking for struct pgNotify.extra in libpq-fe.h... -------------------- yes
+
+"xcrun cc -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include -arch i386 -arch x86_64 -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common     -c conftest.c"
 checked program was:
 /* begin */
 1: #include <libpq-fe.h>
 2: 
 3: /*top*/
 4: int main() { return 0; }
-5: int t() { PQconnectdb(); return 0; }
+5: int s = (char *)&((struct pgNotify*)0)->extra - (char *)0;
+/* end */
+
+--------------------
+
+have_header: checking for unistd.h... -------------------- yes
+
+"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include   -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <unistd.h>
+/* end */
+
+--------------------
+
+have_header: checking for ruby/st.h... -------------------- yes
+
+"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/Library/PostgreSQL/9.1/include   -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <ruby/st.h>
 /* end */
 
 --------------------
