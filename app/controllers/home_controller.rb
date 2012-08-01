@@ -8,6 +8,12 @@ end
 
 class HomeController < ApplicationController
   def index
-  	@photos = Instagram.tag_recent_media('love')
+  	@tag = params[:tag]
+  	puts @tag
+  	if @tag.empty?
+  		@photos = Instagram.tag_recent_media('love')
+  	else 
+  		@photos = Instagram.tag_recent_media(@tag)
+  	end
   end
 end
