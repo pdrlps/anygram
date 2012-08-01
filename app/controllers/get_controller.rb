@@ -6,8 +6,10 @@ Instagram.configure do |config|
   config.client_secret = "70c298f4f3ac4516851c0425d22dbd85"
 end
 
-class HomeController < ApplicationController
+class GetController < ApplicationController
   def index
+  	puts "bla"
   	@photos = Instagram.media_popular
+  	puts @photos
   end
 end

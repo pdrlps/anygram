@@ -1,6 +1,6 @@
 <header>
 </header>
-<div role="main" id="images">
+<div role="main">
 	<% @photos.each do |photo| %>
 		<img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" />
 	<% end %>

@@ -1,5 +1,9 @@
 Lovegram::Application.routes.draw do
+
+
    root :to => "home#index"
+
+   match '/get' => "get#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
