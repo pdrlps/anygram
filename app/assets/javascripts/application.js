@@ -22,12 +22,9 @@ $(document).ready(function() {
    		}
 	 }); 
 
-	 /*$('#form').submit(function(event) {
-	 	event.preventDefault();
-	 	//window.location = 'http://localhost:3000/' + #('#search').value();
-	 	alert( #('#search').attr('value'); );
-	 	return false;
-	 }) */;
+	 $('#more').click(function() {
+	 	location.reload();
+	 })
   });
 
 
