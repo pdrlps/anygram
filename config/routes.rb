@@ -3,7 +3,7 @@ Lovegram::Application.routes.draw do
 
    root :to => "home#index"
 
-   match ':tag', :to => "home#index"
+   match ':tag' => "get#index"
 
    #match '/get' => "get#index"
 

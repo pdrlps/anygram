@@ -15,13 +15,19 @@
 //= require_tree .
 $(document).ready(function() {
 		 
-	 $('#new').click(function(){
-	 	location.reload();
-	 });
-	 
-	 $('#me').click(function(){
-	 	window.location = "http://twitter.com/pedrolopes";
-	 });
+	 $('#search').keypress(function(event){
+		if ( event.which == 13 ) {
+     		event.preventDefault();
+     		window.location = 'http://localhost:3000/' + $(this).attr('value');
+   		}
+	 }); 
+
+	 /*$('#form').submit(function(event) {
+	 	event.preventDefault();
+	 	//window.location = 'http://localhost:3000/' + #('#search').value();
+	 	alert( #('#search').attr('value'); );
+	 	return false;
+	 }) */;
   });
 
 

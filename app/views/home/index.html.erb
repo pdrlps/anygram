@@ -1,10 +1,29 @@
-<header>
-</header>
-<div role="main" id="images">
-	<% @photos.data.each do |photo| %>
-		<a href="<%= photo.link %>" target="_blank"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" /></a>
-	<% end %>
+<div class="container-fluid">
+	<div class="row-fluid">
+    	<div class="span2 well">
+			<ul class="nav nav-list">
+  				<li class="nav-header">TOP TAGS</li>
+  				<li><a href="../infinity">infinity</a></li>
+  				<li><a href="../love">love</a></li>
+  				<li><a href="../olympics">olympics</a></li>
+  				<li><a href="../football">football</a></li>
+  				<li><a href="../gold">gold</a></li>
+  				<li><a href="../medal">medal</a></li>
+			</ul>
+    	</div>
+    	<div class="span10">
+    		<div class="page-header">
+      			<h1>Welcome to anygram <i class="icon-random"></i></h1>
+  			</div>
+  			<p>
+  				The fastest way to browse Instagram photos online!
+  			</p>
+  			<h2>How anygram<i class="icon-random"></i> works</h2>
+  			<ol>
+  					<li>append your search tag to the page address</li>
+  					<li>load!</li>
+  					<li>try it with <a href="../infinity">infinity</a></li>
+  			</ol>
+    	</div>
+  	</div>
 </div>
-<footer>
-<span id="new"></span><span id="me"></span>
-</footer>

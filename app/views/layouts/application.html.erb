@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lovegram</title>
+  <title>anygram</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-<%= yield %>
-
+	<header>
+		<div class="navbar">
+  			<div class="navbar-inner">
+    			<div class="container">
+      				<a class="brand" href="../">anygram <i class="icon-random"></i></a>
+      				<form class="navbar-form pull-right" id="form">
+  						<input type="text" id="search" class="span2 input-medium search-query" placeholder="search here">
+					</form>
+    			</div>
+  			</div>
+		</div>
+	</header>
+	<div class="row-fluid">
+		
+		<%= yield %>
+		
+	</div>
+	<footer class="footer">
+		<blockquote><p>Built with love by <a href="http://twitter.com/pedrolopes" target="_blank"/>@pedrolopes</a></p></blockquote>
+	</footer>
 </body>
 </html>

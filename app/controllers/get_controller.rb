@@ -8,8 +8,7 @@ end
 
 class GetController < ApplicationController
   def index
-  	puts "bla"
-  	@photos = Instagram.tag('love')
-  	puts @photos
+  	@tag = params[:tag]
+  	@photos = Instagram.tag_recent_media(@tag)
   end
 end
