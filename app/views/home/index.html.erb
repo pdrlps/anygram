@@ -26,4 +26,17 @@
   			</ol>
     	</div>
   	</div>
-</div>
+  </div>
+<ul class="thumbnails">
+<% @photos.data.each do |photo| %>
+  <li>
+    <div class="thumbnail">
+      <a href="<%= photo.link %>" target="_blank"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" alt=""></a>
+      <p>&nbsp;</p>
+      <p>
+      	<img src="<%= photo.user.profile_picture %>" width="24" height="24" /> photo by <b><%= photo.user.full_name %></b>
+      </p>
+    </div>
+  </li>
+<% end %>
+</ul>
