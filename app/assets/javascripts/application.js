@@ -18,7 +18,7 @@ $(document).ready(function() {
 	 $('#search').keypress(function(event){
 		if ( event.which == 13 ) {
      		event.preventDefault();
-     		window.location = 'http://localhost:3000/' + $(this).attr('value');
+     		window.location = 'http://anygram.herokuapp.com/' + $(this).attr('value');
    		}
 	 }); 
 
