@@ -34,7 +34,7 @@
       <a href="<%= photo.link %>" target="_blank"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" alt=""></a>
       <p>&nbsp;</p>
       <p>
-      	<img src="<%= photo.user.profile_picture %>" width="24" height="24" /> photo by <b><%= photo.user.full_name %></b>
+      	<img src="<%= photo.user.profile_picture %>" width="24" height="24" /> photo by <b property="dc:creator"><%= photo.user.full_name %></b>
       </p>
     </div>
   </li>
