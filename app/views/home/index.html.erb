@@ -28,14 +28,8 @@
 <% @photos.data.each do |photo| %>
   <li>
     <div class="thumbnail">
-             <% if (photo.caption.text != nil) 
-          @text = photo.caption.text 
-      else
-        @text = "&nbsp;"
-      end %>
-      <a href="<%= photo.link %>" target="_blank" title="<%= @text %>"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" alt=""></a>
+      <a href="<%= photo.link %>" target="_blank"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" alt=""></a>
       <p>&nbsp;</p>
-      <p><%= @text[0..50] %></p>
       <p>
       	<img src="<%= photo.user.profile_picture %>" width="24" height="24" /> photo by <b property="dc:creator"><%= photo.user.full_name %></b>
       </p>
