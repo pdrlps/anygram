@@ -96,8 +96,8 @@ STATIC_LIB =
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/pedrolopes/Development/Software/lovegram/vendor/bundle/ruby/1.8/gems/json-1.7.4/lib$(target_prefix)
-RUBYARCHDIR = /Users/pedrolopes/Development/Software/lovegram/vendor/bundle/ruby/1.8/gems/json-1.7.4/lib$(target_prefix)
+RUBYLIBDIR = /Users/pedrolopes/Development/Software/anygram/vendor/bundle/ruby/1.8/gems/json-1.7.4/lib$(target_prefix)
+RUBYARCHDIR = /Users/pedrolopes/Development/Software/anygram/vendor/bundle/ruby/1.8/gems/json-1.7.4/lib$(target_prefix)
 
 TARGET_SO     = $(DLLIB)
 CLEANLIBS     = $(TARGET).bundle $(TARGET).il? $(TARGET).tds $(TARGET).map
