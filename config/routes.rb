@@ -1,4 +1,4 @@
-Lovegram::Application.routes.draw do
+Anygram::Application.routes.draw do
 
 
   resources :tags
