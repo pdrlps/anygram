@@ -1,6 +1,8 @@
 Lovegram::Application.routes.draw do
 
 
+  resources :tags
+
    root :to => "home#index"
 
    match ':tag' => "get#index"

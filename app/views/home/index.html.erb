@@ -3,12 +3,9 @@
     	<div class="span2 well">
 			<ul class="nav nav-list">
   				<li class="nav-header">TOP TAGS</li>
-  				<li><a href="../infinity">infinity</a></li>
-  				<li><a href="../love">love</a></li>
-  				<li><a href="../olympics">olympics</a></li>
-  				<li><a href="../football">football</a></li>
-  				<li><a href="../gold">gold</a></li>
-  				<li><a href="../medal">medal</a></li>
+          <% @tags.each do |t| %>
+            <li><a href="../<%= t.name %>" title="Give me <%= t.name %> anygrams"><%= t.name %></a></li>
+          <% end %>
 			</ul>
     	</div>
     	<div class="span10">
@@ -31,8 +28,14 @@
 <% @photos.data.each do |photo| %>
   <li>
     <div class="thumbnail">
-      <a href="<%= photo.link %>" target="_blank"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" alt=""></a>
+             <% if (photo.caption.text != nil) 
+          @text = photo.caption.text 
+      else
+        @text = "&nbsp;"
+      end %>
+      <a href="<%= photo.link %>" target="_blank" title="<%= @text %>"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" alt=""></a>
       <p>&nbsp;</p>
+      <p><%= @text[0..50] %></p>
       <p>
       	<img src="<%= photo.user.profile_picture %>" width="24" height="24" /> photo by <b property="dc:creator"><%= photo.user.full_name %></b>
       </p>

@@ -3,8 +3,14 @@
 <% @photos.data.each do |photo| %>
   <li>
     <div class="thumbnail">
-      <a href="<%= photo.link %>" target="_blank"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" alt=""></a>
+        <% if (photo.caption.text != nil) 
+          @text = photo.caption.text 
+      else
+        @text = "&nbsp;"
+      end %>
+      <a href="<%= photo.link %>" target="_blank" title="<%= @text %>"><img src="<%= photo.images.standard_resolution.url %>" width="612" height="612" alt=""></a>
       <p>&nbsp;</p>
+      <p><%= @text[0..50] %></p>
       <p>
       	<img src="<%= photo.user.profile_picture %>" width="24" height="24" /> photo by <b><%= photo.user.full_name %></b>
       </p>
@@ -14,5 +20,5 @@
 </ul>
 </div>
 <div class="span12" style="text-align: center;">
-	<h5 id="more"><i class="icon-refresh"></i> give me more <%= @tag %></h5>
+	<h5><a href="../<%= @tag %>" target="_top" title="give me more <%= @tag %>"><i class="icon-refresh"></i> give me more <%= @tag %></a></h5>
 </div>

@@ -20,10 +20,6 @@ $(document).ready(function() {
      		window.location = 'http://anygram.herokuapp.com/' + $(this).attr('value');
    		}
 	 }); 
-
-	 $('#more').click(function() {
-	 	location.reload();
-	 })
   });
 
 

@@ -9,6 +9,21 @@ end
 class GetController < ApplicationController
   def index
   	@tag = params[:tag]
-  	@photos = Instagram.tag_recent_media(@tag)
+  	
+  	@t = Tag.where("name LIKE ? ", params[:tag])
+
+  	if @t.empty?
+  		@tagg = Tag.new
+ 		@tagg.hits = 1
+  		@tagg.name = params[:tag]
+  		@tagg.save
+  	else
+  		@t.each do |p|
+  			p.hits += 1
+  			p.save
+  		end
+  	end
+	@photos = Instagram.tag_recent_media(params[:tag])
+
   end
 end

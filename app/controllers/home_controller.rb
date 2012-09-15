@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-  	@tag = [:love, :infinity, :olympics, :gold, :silver, :portugal, :football, :soccer, :sports, :athlete, :medal]
-  	@photos = Instagram.tag_recent_media(@tag.sample)
+  	@t = Tag.order("RANDOM()").first
+  	@photos = Instagram.tag_recent_media(@t.name)
+  	@tags = Tag.order("hits DESC").limit(8);
   end
 end
