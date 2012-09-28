@@ -6,6 +6,7 @@ class GetController < ApplicationController
   config.client_id = "54cb02eb1f784ea4bb750ea7c5abc85a"
   config.client_secret = "70c298f4f3ac4516851c0425d22dbd85"
 end	
+    @tag = params[:tag]
   	@t = Tag.where("name LIKE ? ", params[:tag])
 
   	if @t.empty?
